@@ -1,0 +1,124 @@
+{% include 'header.html' %}
+
+	
+	<div id="pageTop" style="background-color: {{colour}}">
+		
+		<div class="progress" style="display: block;">
+		  <div class="progress-bar" role="progressbar" aria-valuenow={{trial_num}}
+		  aria-valuemin="0" aria-valuemax="100" style="width:{{trial_num}}%;position:relative;z-index: 1100;  ">
+		    Progress: {{trial_num}}%
+		  </div>
+		</div>
+
+	</div>
+	
+	<div id="content">
+		<div id="calendar">
+			<table>
+				<tr>
+					<td><div id="caltop">Sunday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_1}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_1}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_1}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Monday</div>
+					<div id="calbottom"> 
+						<table>
+							<tr>
+								{{day_2}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_2}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_2}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Tuesday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_3}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_3}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_3}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Wednesday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_4}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_4}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_4}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Thursday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_5}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_5}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_5}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Friday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_6}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_6}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_6}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+					<td><div id="caltop">Saturday</div>
+					<div id="calbottom">
+						<table>
+							<tr>
+								{{day_7}}
+							</tr>
+							<tr>
+								<td>Hi : {{high_7}}{{unit}}</td>
+								<td></td>
+								<td>Lo : {{low_7}}{{unit}}</td>
+							</tr>
+						</table>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+
+		{% load widget_tweaks %}
+
+		<form method="post" style="text-align: center;", id="trial_form" action="/survey/">
+			{% csrf_token %}
+			{{ form }}
+			<input type="submit" name="">
+		</form>
+	</div>
+
+
+{% include 'footer.html' %}
