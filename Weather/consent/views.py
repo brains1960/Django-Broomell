@@ -17,7 +17,7 @@ def index(request):
 		form = ConsentForm(request.POST)
 
 		if form.is_valid():
-			return HttpResponseRedirect('/survey')
+			return HttpResponseRedirect('/location')
 
 	else:
 

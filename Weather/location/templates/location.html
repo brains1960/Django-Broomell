@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+
+    <div id="content">
+        <br><br>
+        The following survey will ask you location specific questions about temperatures. It is important that you select the correct location that best describes where you currently live. We are looking for individuals living near either Cincinnati, OH or Pittsburgh, PA. You have been selected for this experiment because you indicated that you live within a 30-45 minute driving distance from either of these cities.<br><br>
+
+        It is possible that you may have received this survey by error, for example, if you have recently moved.  If this is the case, please stop the experiment, and select <I>Other</I> from the list below.<br><br><br>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form }}
+            </table>
+            <input type="submit" value="Submit" />
+        </form>
+        <br><br>
+    </div>
+    <br><br>
+
+
+
+{% include 'footer.html' %}

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'survey.apps.SurveyConfig',
     'consent.apps.ConsentConfig',
+    'location.apps.LocationConfig',
     'widget_tweaks',
 
 ]

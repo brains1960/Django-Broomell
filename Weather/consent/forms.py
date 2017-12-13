@@ -12,4 +12,3 @@ class ConsentForm(forms.Form):
 	willParticipate = forms.BooleanField(required=True, 
 								label="I want to participate in this research and continue with the survey.",
 								error_messages={'required':"You must consent to continue with the survey. Please exit the survey if you do not consent"})
-

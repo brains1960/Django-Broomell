@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^survey/', include('survey.urls')),
     url(r'^consent/', include('consent.urls')),
+    url(r'^location/', include('location.urls')),
     url(r'^$', RedirectView.as_view(url='/consent/', permanent=True)),
 ]
