@@ -23,5 +23,5 @@ def index(request):
 
 		form = ConsentForm()
 		# Render the HTML template index.html with the data in the context variable
-	 	return render(request,'informed_consent.html', {'form' : form, 'page_name' : '- Consent'})
+		return render(request,'informed_consent.html', {'form' : form, 'page_name' : '- Consent'})
    
