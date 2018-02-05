@@ -1,0 +1,58 @@
+{% include 'header.html' %}
+
+	<div id="content">
+		
+		<div>
+			
+			<h3>Example</h3>
+
+			<p>Here is an example of what a trial will look like:</p>
+
+			<p>This is the distribution of a 1000 daily temperatures from a properly functioning machine</p>
+
+			{{ condition_img }}
+
+			<p>A Malfunctioning machine will have daily temperature readings that are on average 10 degrees Fahrenheit warmer than a properly functioning machine.</p>
+
+			<p>Week 1:</p>
+
+			<table>
+				<tr>
+					<th>Sunday</th>
+					<td>{{ example1 }}</td>
+				</tr>
+				<tr>
+					<th>Monday</th>
+					<td>{{ example2 }}</td>
+				</tr>
+				<tr>
+					<th>Tuesday</th>
+					<td>{{ example3 }}</td>
+				</tr>
+				<tr>
+					<th>Wednesday</th>
+					<td>{{ example4 }}</td>
+				</tr>
+				<tr>
+					<th>Thursday</th>
+					<td>{{ example5 }}</td>
+				</tr>
+				<tr>
+					<th>Friday</th>
+					<td>{{ example6 }}</td>
+				</tr>
+				<tr>
+					<th>Saturday</th>
+					<td>{{ example7 }}</td>
+				</tr>
+
+			</table>
+
+		</div>
+
+		{% load widget_tweaks %}
+
+	</div>
+
+
+{% include 'footer.html' %}
