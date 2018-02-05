@@ -1,16 +1,4 @@
 {% include 'header.html' %}
-
-	
-	<div id="pageTop" style="background-color: {{colour}}">
-		
-		<div class="progress" style="display: block;">
-		  <div class="progress-bar" role="progressbar" aria-valuenow={{trial_num}}
-		  aria-valuemin="0" aria-valuemax="100" style="width:{{trial_num}}%;position:relative;z-index: 1100;  ">
-		    Progress: {{trial_num}}%
-		  </div>
-		</div>
-
-	</div>
 	
 	<div id="content">
 		
@@ -36,6 +24,8 @@
 			<p>For each week, your task will be tell us whether you believe that week’s daily temperature readings came from the properly functioning machine or the malfunctioning machine. For each week you will be asked to rate your confidence in your decision.</p>
 			
 		</div>
+
+		<button type="submit" value="Submit">Next</button>
 
 		{% load widget_tweaks %}
 

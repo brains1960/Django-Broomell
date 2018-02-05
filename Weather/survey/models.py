@@ -7,7 +7,6 @@ from django.core.validators import validate_comma_separated_integer_list
 #Create your models here.
 class GlobalData(models.Model):
 	participant_id = models.IntegerField(default=0)
-	city = models.IntegerField(default=0)
 	unit = models.CharField(max_length=5)
 	#trialsLeft = models.CommaSeparatedIntegerField(max_length=200)
 	trialsLeft = models.CharField(validators=[validate_comma_separated_integer_list],max_length=200)
@@ -42,6 +41,7 @@ class Response(models.Model):
 class Participants(models.Model):
 	participant_id = models.IntegerField(default=0)
 	last_trial = models.IntegerField(default=0)
+	condition = models.IntegerField(default=0)
 
 	def __str__(self):
 		return str(self.participant_id)

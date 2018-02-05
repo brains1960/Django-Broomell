@@ -24,7 +24,6 @@ def index(request):
 			new_g_data = GlobalData()
 
 			new_g_data.participant_id = randint(1,10000)
-			new_g_data.city = form.cleaned_data['city']
 			new_g_data.unit = form.cleaned_data['unit']
 			trials_left = range(1,53)
 			new_g_data.trials_left = ",".join([str(x) for x in trials_left])
