@@ -36,12 +36,14 @@
 					<td>{{ example7 }}</td>
 				</tr>
 			</table>
-
 		</div>
 
 		<form method="post">
 			{% csrf_token %}
-			<input type="submit" value="Next">
+			{{ form1 }}
+			{{ form2 }}
+			<p>At the end of the experiment we will tell you how well you did.</p>
+			<input type="submit" value="Click here to begin">
 		</form>
 
 		{% load widget_tweaks %}

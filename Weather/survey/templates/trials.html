@@ -1,45 +1,49 @@
 {% include 'header.html' %}
 
-	
-	<div id="pageTop" style="background-color: {{colour}}">
-		
-		<div class="progress" style="display: block;">
-		  <div class="progress-bar" role="progressbar" aria-valuenow={{trial_num}}
-		  aria-valuemin="0" aria-valuemax="100" style="width:{{trial_num}}%;position:relative;z-index: 1100;  ">
-		    Progress: {{trial_num}}%
-		  </div>
-		</div>
-
-	</div>
-	
 	<div id="content">
-		
+			
 		<div>
 			
-			<p>We are interested in studying the ability to detect the failure of assembly line machines that build heads lights for cars. We would like for you to imagine that you work in a factory, and you are in charge of monitoring one specific machine on the assembly line. This machine is a very sophisticated injection molding machine that has several internal sensors that measure the operating temperature. This machine pours melted plastic into a mold, lets the plastic cool, and then places a molded plastic headlight cover on the assembly line for further processing.</p>
-			<p>The machine’s operating temperature is recorded each day. When the machine is functioning properly, the machine produces daily temperature readings that have an average value of 63 degrees Fahrenheit, with a standard deviation of 8 degrees. This figure shows 1000 daily temperatures recorded for a properly functioning injection molding machine.</p>
+			<h3>Survey</h3>
 
-			<img src="../static/img/properfunction.jpg">
+			<p>This is the distribution of a 1000 daily temperatures from a properly functioning machine</p>
 
-			<p>The injection molding machine can sometimes fail, and begins to heat the plastic to a temperature that is too high. </p>
+			{{ condition_img }}
 
-			<p>{{ condition_text_1 }}</p>
+			<p>A Malfunctioning machine will have daily temperature readings that are on average {{ number_on_average_in_units}} degrees {{ unit }} warmer than a properly functioning machine.</p>
 
-			<img src="../static/img/malfunction.jpg">
+			<p>Week 1:</p>
 
-			<p>The operators at the factory need to be able to figure out when this machine is functioning properly or malfunctioning from observing a week’s worth of daily temperature readings from the machine.</p>
-
-			<img src="../static/img/both.jpg">
-
-			<p>We have 1 year of daily temperature readings from a properly functioning machine and 1 year of daily temperature reading from a malfunctioning machine. We will show you data one week at a time, from each of the 52 calendar weeks. For each week, we will randomly show you data from either the properly functioning or the malfunctioning machine. </p>
-
-			<p>For each week, your task will be tell us whether you believe that week’s daily temperature readings came from the properly functioning machine or the malfunctioning machine. For each week you will be asked to rate your confidence in your decision.</p>
-			
+			<table>
+				<tr>
+					<th>Sunday</th>
+					<th>Monday</th>
+					<th>Tuesday</th>
+					<th>Wednesday</th>
+					<th>Thursday</th>
+					<th>Friday</th>
+					<th>Saturday</th>
+				</tr>
+				<tr>
+					<td>{{ temp1 }}</td>
+					<td>{{ temp2 }}</td>
+					<td>{{ temp3 }}</td>
+					<td>{{ temp4 }}</td>
+					<td>{{ temp5 }}</td>
+					<td>{{ temp6 }}</td>
+					<td>{{ temp7 }}</td>
+				</tr>
+			</table>
 		</div>
+
+		<form method="post">
+			{% csrf_token %}
+			{{ form1 }}
+			<input type="submit" value="Next">
+		</form>
 
 		{% load widget_tweaks %}
 
 	</div>
-
 
 {% include 'footer.html' %}
