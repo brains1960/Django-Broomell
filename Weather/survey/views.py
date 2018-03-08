@@ -48,7 +48,7 @@ def index(request, participant_id):
 			deviation = 5
 
 		elif global_data.unit == "1":
-			temperature == 63
+			temperature = 63
 			unit = "Fahrenheit"
 			deviation = 8
 

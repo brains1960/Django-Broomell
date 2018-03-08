@@ -1,5 +1,5 @@
 from django import forms
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class SurveyForm(forms.Form):
 	machine_choices = (('0', 'A properly functioning machine',), ('1', 'A malfunctioning machine',))
@@ -11,7 +11,7 @@ class SurveyForm(forms.Form):
 									widget=forms.RadioSelect, choices=confidence_choices)
 
 class ExampleForm(forms.Form):
-	performance_est = forms.CharField(max_length=2, required=True, validators=[MaxValueValidator(52)],
+	performance_est = forms.IntegerField(required=True, validators=[MinValueValidator(0),MaxValueValidator(52)],
              label="We would like for you to tell us how well you\
 	 													think can perform this task. Out of the 52 trials, how many\
 									times do you think you can correctly identify which machine generated this data?")
