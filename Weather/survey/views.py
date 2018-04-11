@@ -115,10 +115,10 @@ def example(request, participant_id):
 
 	else:
 		if participant.condition == 1:
-			condition_img = "<img src='../static/img/condition1_example.jpg'>"
+			condition_img = "<img src='/img/condition1_example.jpg'>"
 
 		elif participant.condition == 2:
-			condition_img = "<img src='../static/img/condition1_example.jpg'>"
+			condition_img = "<img src='/img/condition1_example.jpg'>"
 
 		return render(request, 'example.html', {'page_name' : participant_id, 'colour' : "gray", 'example1' : example1,
 												'example2' : example2, 'example3' : example3, 'example4' : example4,
@@ -169,12 +169,12 @@ def trial(request, participant_id):
                 
                 #sorting by week
                 sortedlist = sorted(rd, key=lambda row: row[0], reverse=True)
-                #delete file
-                rd.truncate()
                 
                 #rewrite file via loop
                 with open(os.path.join(THIS_FOLDER, 'results'+str(participant_id)+'.csv'), 'a') as resultFile:
                     wr = csv.writer(resultFile, dialect='excel')
+                    #clear file content
+                    wr.truncate()
                     for row in sortedlist:
                        wr.writerow(row) 
                     
