@@ -11,6 +11,7 @@ from .models import GlobalData, Trial, Response, Participants
 from django.core.exceptions import ObjectDoesNotExist
 
 from random import *
+import pandas as pd
 
 # Create your views here.
 
@@ -162,8 +163,28 @@ def trial(request, participant_id):
 			response_data.save()
 
 
-		if (int(participant.last_trial) == 52):
-
+		if (int(participant.last_trial) == 4):
+            with open(os.path.join(THIS_FOLDER, 'results'+str(participant_id)+'.csv'), 'r') as resultFile:
+                rd = csv.reader(resultFile, dialect='excel')
+                
+                #sorting by week
+                sortedlist = sorted(rd, key=lambda row: row[0], reverse=True)
+                #delete file
+                rd.truncate()
+                
+                #rewrite file via loop
+                with open(os.path.join(THIS_FOLDER, 'results'+str(participant_id)+'.csv'), 'a') as resultFile:
+                    wr = csv.writer(resultFile, dialect='excel')
+                    for row in sortedlist:
+                       wr.writerow(row) 
+                    
+                main = pd.read_csv("results.csv")
+                current = pd.read_csv('results'+str(participant_id)+'.csv')
+                merged = main.merge(current, on='test_id',how='left')
+                merged.to_csv("results.csv", index=False)
+                    
+                    
+                    
 			return HttpResponseRedirect('/')
 
 		else:
@@ -177,11 +198,12 @@ def trial(request, participant_id):
 
 			rowNum = int(choice(trialsLeft))
 
-			datarow = [response_data.participant_id, rowNum, response_data.machine,response_data.confidence]
+			datarow = [rowNum, participant.last_trial, response_data.machine,response_data.confidence]
 			# makeCSV([response_data.participant_id, response_data.week,response_data.machine,response_data.confidence])
-			with open(os.path.join(THIS_FOLDER, 'results.csv'), 'a') as resultFile:
+			with open(os.path.join(THIS_FOLDER, 'results'+str(participant_id)+'.csv'), 'a') as resultFile:
 				wr = csv.writer(resultFile, dialect='excel')
 				wr.writerow(datarow)
+                
 
 			trialsPassed = participant.trialsPassed
 			if len(trialsPassed) <= 2:
